@@ -24,7 +24,7 @@ cam = camera.Camera(debug=False, db=db_file)
 cam.ready()
 bw.ready()
 fw.ready()
- 
+
 SPEED = 60
 bw_status = 0
 
@@ -36,6 +36,9 @@ def home(request):
 def run(request):
 	global SPEED, bw_status
 	debug = ''
+
+	print(request)
+
 	if 'action' in request.GET:
 		action = request.GET['action']
 		# ============== Back wheels =============
@@ -67,7 +70,7 @@ def run(request):
 		elif 'fwturn' in action:
 			print "turn %s" % action
 			fw.turn(int(action.split(':')[1]))
-		
+
 		# ================ Camera =================
 		elif action == 'camready':
 			cam.ready()
@@ -78,7 +81,7 @@ def run(request):
 		elif action == 'camup':
 			cam.turn_up(20)
 		elif action == 'camdown':
-			cam.turn_down(20)	
+			cam.turn_down(20)
 	if 'speed' in request.GET:
 		speed = int(request.GET['speed'])
 		if speed < 0:
