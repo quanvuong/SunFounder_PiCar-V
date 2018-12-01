@@ -83,7 +83,8 @@ def run(request):
 		elif action == 'camdown':
 			cam.turn_down(20)
 		elif action == 'camnegativex':
-			cam.turn_no_safe_check()
+			cam.to_position(0, 0)
+			cam.to_position(180, 180)
 	if 'speed' in request.GET:
 		speed = int(request.GET['speed'])
 		if speed < 0:
