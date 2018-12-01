@@ -60,7 +60,7 @@ class Camera(object):
 			variable = 0
 		return variable
 
-	def turn_no_safe_check(self, step):
+	def turn_no_safe_check(self):
 		self.pan_servo.write(200)
 
 	def turn_left(self, step=PAN_STEP):
