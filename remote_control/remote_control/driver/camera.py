@@ -61,7 +61,7 @@ class Camera(object):
 		return variable
 
 	def turn_no_safe_check(self):
-		self.pan_servo.write(200)
+		self.pan_servo.write(250)
 
 	def turn_left(self, step=PAN_STEP):
 		''' Control the pan servo to make the camera turning left '''
