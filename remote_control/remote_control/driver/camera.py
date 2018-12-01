@@ -60,6 +60,9 @@ class Camera(object):
 			variable = 0
 		return variable
 
+	def turn_no_safe_check(self, step):
+		self.pan_servo.write(200)
+
 	def turn_left(self, step=PAN_STEP):
 		''' Control the pan servo to make the camera turning left '''
 		if self._DEBUG:
@@ -212,7 +215,7 @@ if __name__ == '__main__':
 			print "tilt moving right   ", i
 			camera.tilt_down()
 			time.sleep(camera.CAMERA_DELAY*camera.TILT_STEP)
-		
+
 		print "Camera move to ready position"
 		camera.ready()
 
